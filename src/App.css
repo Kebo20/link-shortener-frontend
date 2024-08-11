@@ -1,0 +1,11 @@
+.container-button {
+    display: flex;
+    justify-content: space-between;
+    max-width: 250px;
+
+}
+
+
+.tasks {
+    margin: 16px;
+}
