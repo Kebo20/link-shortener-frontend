@@ -5,6 +5,51 @@
 
 }
 
+/* styles.css */
+.title {
+    font-size: 70px;
+    font-weight: bold;
+    background: linear-gradient(50deg, #A415B0 0%, #892FD0 25%, #0348FA 57%, #144EE3 95%);
+    background-clip: text;
+    color: transparent;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    /* Necesario para animar el ancho */
+    border-right: 2px solid #fff;
+    /* O el color de tu elección para el cursor */
+    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 90%;
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    20% {
+        border-color: #A415B0;
+    }
+}
+
+.type-complete {
+    animation: none;
+    border-right: #892FD0;
+
+}
+
+
 
 
 .tasks {
@@ -87,13 +132,7 @@
     padding: 4px
 }
 
-.title {
-    font-size: 70px;
-    font-weight: bold;
-    background: linear-gradient(50deg, #A415B0 0%, #892FD0 25%, #0348FA 57%, #144EE3 95%);
-    background-clip: text;
-    color: transparent;
-}
+
 
 input {
 

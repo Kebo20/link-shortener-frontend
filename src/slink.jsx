@@ -3,6 +3,28 @@ import { useSave } from './hooks/useSave.js'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import './css/slink.css'
 
+function TypingEffect() {
+    const [displayText, setDisplayText] = useState('');
+    const [complete, setComplete] = useState(false);
+
+    const text = 'Acorta tus links!'
+
+    useEffect(() => {
+        let index = 0;
+        const interval = setInterval(() => {
+            setDisplayText(text.substring(0, index + 1));
+            index += 1;
+            if (index === text.length) {
+                clearInterval(interval);
+                setComplete(true)
+            }
+        }, 130); // Ajusta el tiempo de retraso según lo rápido que quieras que se escriba
+        return () => clearInterval(interval); // Limpia el intervalo si el componente se desmonta
+    }, [text]);
+
+    return <span className={complete ? 'title type-complete' : 'title'}>{displayText}</span>;
+}
+
 export const Slink = () => {
     const { handleSave, handleClear, tasks } = useSave()
     const [input, setInput] = useState('')
@@ -200,7 +222,7 @@ export const Slink = () => {
 
                 : <>
                     <div className='container-title' >
-                        <span className='title'>Acorta tus links !</span>
+                        <TypingEffect />
                         <span style={{ textAlign: 'center' }}>
                             Linkevo es un servicio de acortamiento de URL gratuito, fácil de usar y personalizable.
                         </span>

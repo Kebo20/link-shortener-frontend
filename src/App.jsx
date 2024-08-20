@@ -15,6 +15,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Slink />} />
         <Route path="/validate-password/:code" element={<Redirect />} />
+        <Route path="/validate" element={<Slink />} />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
