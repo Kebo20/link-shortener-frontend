@@ -1,0 +1,14 @@
+.title-logo {
+    font-size: 44px;
+    font-weight: bold;
+    background: linear-gradient(50deg, #A415B0 0%, #892FD0 25%, #0348FA 57%, #144EE3 95%);
+    background-clip: text;
+    color: transparent;
+}
+
+@media (max-width: 768px) {
+    .title-logo {
+
+        font-size: 28px !important;
+    }
+}

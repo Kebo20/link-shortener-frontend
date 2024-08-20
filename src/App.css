@@ -1,11 +1,25 @@
-.container-button {
-    display: flex;
-    justify-content: space-between;
-    max-width: 250px;
-
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(180deg, #04070D 2%, #04070D 26%, #080C12 43%, #10151F 91%);
+    /* Si quieres que el degradado cubra todo el viewport en algunos navegadores antiguos */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
+button {
+    /* background-color: #144EE3 !important; */
+    border: 4px solid #144EE3 !important;
+    border-radius: 48px !important;
+    box-shadow: 10px 0px 55px rgba(255, 255, 255, 0.1) !important;
+    font-size: 16px !important;
+    height: calc(1rem * var(--pico-line-height) + var(--pico-form-element-spacing-vertical) * 2 + var(--pico-border-width) * 2) !important;
+    font-weight: bold !important;
+}
 
-.tasks {
-    margin: 16px;
+:root:not([data-theme=dark]) {
+
+    /* --pico-switch-background-color: #144EE3; */
+    --pico-primary-background: #144EE3 !important;
+
 }

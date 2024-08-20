@@ -1,0 +1,241 @@
+.container-button {
+    display: flex;
+    justify-content: space-between;
+    max-width: 250px;
+
+}
+
+
+
+.tasks {
+    margin: 16px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    margin-top: 28px;
+
+}
+
+.container-options {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 16px;
+    align-items: left;
+}
+
+.container-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 30px;
+    padding: 10px;
+}
+
+.input-container {
+    flex: 1 1 85%;
+}
+
+
+.input-container-options {
+    width: 50%;
+}
+
+
+.buttons-container {
+    flex: 1 1 15%;
+
+}
+
+.buttons-container button {
+    margin-left: 8px !important;
+}
+
+
+.body-slink {
+
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+
+
+
+
+.short-link {
+
+    display: flex;
+    justify-content: left;
+    gap: 10px;
+    width: 100%;
+}
+
+
+
+
+.short-link .button-container button {
+    height: 50px;
+    line-height: 10%;
+    padding: 4px
+}
+
+.title {
+    font-size: 70px;
+    font-weight: bold;
+    background: linear-gradient(50deg, #A415B0 0%, #892FD0 25%, #0348FA 57%, #144EE3 95%);
+    background-clip: text;
+    color: transparent;
+}
+
+input {
+
+    border-radius: 48px !important;
+    border: 4px solid #353C4A !important;
+}
+
+input:focus {
+    box-shadow: none !important;
+}
+
+.input-personalize-link {
+
+    border-radius: 48px 0px 0px 48px !important;
+    font-weight: bold;
+    background: linear-gradient(50deg, #A415B0 0%, #892FD0 25%, #0348FA 57%, #144EE3 95%);
+    background-clip: text;
+    color: transparent;
+}
+
+.input-personalize-code {
+
+    border-radius: 0px 48px 48px 0px !important;
+}
+
+/* Pantallas pequeñas (móviles en modo vertical) */
+@media (max-width: 375px) {
+    .container {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .input-container {
+        width: 100%;
+    }
+
+    .input-container-options {
+        width: 100%;
+    }
+
+    .input-container,
+    .buttons-container {
+        flex: 1 1 100%;
+    }
+
+    .buttons-container {
+        justify-content: space-evenly;
+    }
+
+    .title {
+        font-size: 38px !important;
+    }
+
+    .body-slink {
+
+        width: 98% !important;
+    }
+
+    .container-options {
+        width: 98%;
+    }
+}
+
+/* Pantallas medianas (tabletas en modo vertical o móviles grandes) */
+@media (min-width: 376px) and (max-width: 768px) {
+
+    .container {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .input-container {
+        width: 100%;
+    }
+
+    .input-container-options {
+        width: 100%;
+    }
+
+    .input-container,
+    .buttons-container {
+        flex: 1 1 100%;
+    }
+
+    .buttons-container {
+        justify-content: space-evenly;
+    }
+
+    .title {
+        font-size: 48px !important;
+    }
+
+    .body-slink {
+
+        width: 98% !important;
+    }
+
+    .container-options {
+        width: 98%;
+    }
+}
+
+/* Pantallas grandes (laptops y monitores) */
+@media (min-width: 769px) and (max-width: 1280px) {
+    .container {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .input-container {
+        width: 100%;
+    }
+
+    .input-container-options {
+        width: 100%;
+    }
+
+    .input-container,
+    .buttons-container {
+        flex: 1 1 100%;
+    }
+
+    .buttons-container {
+        justify-content: space-evenly;
+    }
+
+    .title {
+        font-size: 48px !important;
+    }
+
+    .body-slink {
+
+        width: 98% !important;
+    }
+
+    .container-options {
+        width: 98%;
+    }
+}
+
+/* Pantallas extra grandes (monitores grandes) */
+@media (min-width: 1281px) {}
