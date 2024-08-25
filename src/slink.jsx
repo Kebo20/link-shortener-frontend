@@ -276,7 +276,7 @@ export const Slink = () => {
                                 {
                                     !validateCode() ?
                                         <>
-                                            <small id="valid-code" style={{ color: '#ce7e7b' }}>Ingrese un código de alfanúmerico de 6 caracteres como mínmo</small>
+                                            <small id="valid-code" style={{ color: '#ce7e7b' }}>Ingrese un código alfanúmerico de 6 caracteres como mínimo</small>
                                         </>
                                         : <></>
                                 }
