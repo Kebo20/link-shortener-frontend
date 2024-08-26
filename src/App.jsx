@@ -5,9 +5,11 @@ import { NavBar } from './navBar.jsx'
 import { Routes, Route } from 'react-router-dom';
 import { NotFound } from './NotFound.jsx'
 import { Redirect } from './redirect.jsx';
+import usePageTracking from './usePageTracking';
 
 function App() {
 
+  usePageTracking();
 
   return (
     <>
