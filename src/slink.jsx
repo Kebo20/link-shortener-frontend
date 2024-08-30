@@ -22,7 +22,7 @@ function TypingEffect() {
         return () => clearInterval(interval); // Limpia el intervalo si el componente se desmonta
     }, [text]);
 
-    return <span className={complete ? 'title type-complete' : 'title'}>{displayText}</span>;
+    return <h1 className={complete ? 'title type-complete' : 'title'}>{displayText}</h1>;
 }
 
 export const Slink = () => {
