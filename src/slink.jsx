@@ -114,7 +114,24 @@ export const Slink = () => {
                 } else {
 
                     setShortLink('')
-                    setError(dataResponse.message ? dataResponse.message : 'Ocurrió un error. Intentelo más tarde.')
+                    const errorMessagge = dataResponse.message
+
+                    if (errorMessagge) {
+
+
+                        if (Array.isArray(errorMessagge)) {
+
+                            const aMessagge = errorMessagge.map((m) => m.message)
+                            setError(aMessagge.join(' , '))
+
+                        } else {
+                            setError(errorMessagge)
+                        }
+
+                    } else {
+                        setError('Ocurrió un error. Intentelo más tarde.')
+                    }
+
                     console.log(dataResponse)
 
                 }
@@ -164,7 +181,6 @@ export const Slink = () => {
 
     const validateCode = () => {
 
-        console.log('code')
         if (!optionPersonalize) return true
         return (optionPersonalize && code && code.length >= 6)
 
@@ -229,7 +245,7 @@ export const Slink = () => {
                     </div>
 
                     <div className='container'>
-                        <div className='input-container'>
+                        <div className='input-container' style={{ 'display': 'block' }}>
                             <input value={input} onChange={(e) => setInput(e.target.value.trim())} type="url" placeholder="Ingrese tu link aquí" autocomplete="url" aria-invalid={!validateLink() ? 'true' : ''} aria-describedby="valid-input" />
 
                             {
@@ -267,7 +283,7 @@ export const Slink = () => {
                         {optionPersonalize ?
                             <div className='input-container-options' >
 
-                                <div className='input-container' style={{ 'display': 'flex', 'flex-direction': 'row !important' }}>
+                                <div className='input-container' >
                                     <input className='input-personalize-link' readOnly value='https://linkevo.app/' />
                                     <input className='input-personalize-code' value={code} onChange={(e) => setCode(e.target.value.trim())} type="url" placeholder="Ingrese tu código" autocomplete="url" aria-invalid={!validateCode() ? 'true' : ''} aria-describedby="valid-code" />
 
@@ -299,14 +315,18 @@ export const Slink = () => {
                             <div className='input-container-options'>
 
                                 <div className='input-container'>
+
                                     <input value={password} onChange={(e) => setPassword(e.target.value.trim())} type="url" placeholder="Ingrese contraseña" autocomplete="url" aria-invalid={!validatePassword() ? 'true' : ''} aria-describedby="valid-password" />
 
-                                    {
-                                        !validatePassword() ?
-                                            <small id="valid-password">Ingrese una contraseña de 4 caracteres mínimo</small>
-                                            : <></>
-                                    }
+
                                 </div>
+                                {
+                                    !validatePassword() ?
+                                        <>
+                                            <small id="valid-password" style={{ color: '#ce7e7b' }}>Ingrese una contraseña de 4 caracteres mínimo</small>
+                                        </>
+                                        : <></>
+                                }
                             </div>
                             : <></>}
                     </div>

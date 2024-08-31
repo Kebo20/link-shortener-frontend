@@ -3,36 +3,29 @@ import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import './css/slink.css'
 import { useParams } from 'react-router-dom';
 
-export const Redirect = () => {
+export const ValidatePassword = () => {
     const [token, setToken] = useState(null)
     const [password, setPassword] = useState('')
-    const [optionPassword, setOptionPassword] = useState(true)
+    const [optionPassword, setOptionPassword] = useState(false)
     const { code } = useParams();
     const [error, setError] = useState('')
 
 
 
+
     const { executeRecaptcha } = useGoogleReCaptcha();
 
-    useEffect(() => {
-        handleToken()
-    }, [executeRecaptcha, error, optionPassword])
-
     // useEffect(() => {
-
-    //     if (token && !optionPassword) {
-    //         get()
-
-    //     }
-
-    // }, [token])
+    //     handleToken()
+    // }, [executeRecaptcha, error, optionPassword])
 
     useEffect(() => {
 
-        // get()
+        get();
+
+    }, [executeRecaptcha])
 
 
-    }, [])
 
     const clear = () => {
         setError('')
@@ -57,7 +50,7 @@ export const Redirect = () => {
             }
 
         } catch (error) {
-            setError('Fallo en la verificación de reCAPTCHA, actualice la página ')
+            setError('Fallo en la verificación de reCAPTCHA, actualice la página. ')
             setToken(null);
 
         }
@@ -76,15 +69,20 @@ export const Redirect = () => {
 
 
 
-        // if (token) {
 
-        const response = await fetch(`${import.meta.env.VITE_BACKEND_HOST}/v1/link/short-url/${code}`, {
+        const tokenV3 = await executeRecaptcha('getLink');
+
+        if (!tokenV3) {
+            setError('Fallo en la verificación de reCAPTCHA, actualice la página ')
+        }
+
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_HOST}/v1/link/validate/${code}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                token
+                token: tokenV3
             }),
         })
 
@@ -96,6 +94,7 @@ export const Redirect = () => {
             if (dataResponse.data.show) {
                 window.location.href = dataResponse.data.originalUrl
             } else {
+
                 setOptionPassword(true)
             }
 
@@ -105,10 +104,6 @@ export const Redirect = () => {
             setError(dataResponse.message ? dataResponse.message : 'Ocurrió un error. Intentelo más tarde.')
 
         }
-        // } else {
-        //     setError('Fallo en la verificación de reCAPTCHA, actualice la página o intentelo más tarde ')
-
-        // }
 
 
 
@@ -124,17 +119,19 @@ export const Redirect = () => {
 
 
 
-
-
         if (password) {
 
+            const tokenV3 = await executeRecaptcha('getLink');
+            if (!tokenV3) {
+                setError('Fallo en la verificación de reCAPTCHA, actualice la página ')
+            }
             const response = await fetch(`${import.meta.env.VITE_BACKEND_HOST}/v1/link/validate-password`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    token,
+                    token: tokenV3,
                     password: password,
                     shortUrl: code
                 }),

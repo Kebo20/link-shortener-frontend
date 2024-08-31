@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './css/navBar.css'
 
 export const NavBar = () => {
@@ -6,10 +7,10 @@ export const NavBar = () => {
     return (
         <nav style={{ margin: '4px 32px' }}>
             <ul>
-                <li><span className='title-logo'>Linkevo</span></li>
+                <li><Link to="/" ><span className='title-logo'>Linkevo</span></Link></li>
             </ul>
             <ul>
-                <li><a href="#" class="contrast"><button>Verificar link</button></a></li>
+                <li><Link to="/validate-link" class="contrast"><button>Verificar link</button></Link></li>
             </ul>
         </nav>
     )

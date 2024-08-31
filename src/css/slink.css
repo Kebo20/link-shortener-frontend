@@ -84,6 +84,8 @@
 }
 
 .input-container {
+    display: flex;
+    flex-direction: row;
     flex: 1 1 85%;
 }
 
@@ -144,7 +146,19 @@ input:focus {
     box-shadow: none !important;
 }
 
+.input-personalize-link-validate {
+
+    flex: 1 1 30%;
+
+    border-radius: 48px 0px 0px 48px !important;
+    font-weight: bold;
+    background: linear-gradient(50deg, #A415B0 0%, #892FD0 25%, #0348FA 57%, #144EE3 95%);
+    background-clip: text;
+    color: transparent;
+}
+
 .input-personalize-link {
+
 
     border-radius: 48px 0px 0px 48px !important;
     font-weight: bold;
@@ -158,8 +172,23 @@ input:focus {
     border-radius: 0px 48px 48px 0px !important;
 }
 
+.input-personalize-code-validate {
+    flex: 1 1 70%;
+
+    border-radius: 0px 48px 48px 0px !important;
+}
+
 /* Pantallas pequeñas (móviles en modo vertical) */
 @media (max-width: 375px) {
+
+    .input-personalize-link-validate,
+    .input-personalize-code-validate {
+        flex: auto;
+
+
+    }
+
+
     .container {
         flex-direction: column;
         width: 100%;
@@ -199,6 +228,13 @@ input:focus {
 
 /* Pantallas medianas (tabletas en modo vertical o móviles grandes) */
 @media (min-width: 376px) and (max-width: 768px) {
+
+    .input-personalize-link-validate,
+    .input-personalize-code-validate {
+        flex: auto;
+
+
+    }
 
     .container {
         flex-direction: column;
